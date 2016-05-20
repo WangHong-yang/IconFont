@@ -7,6 +7,7 @@
 //
 
 #import "TBCityIconViewController.h"
+#import "UIImage+iconFont.h"
 
 @interface TBCityIconViewController ()
 

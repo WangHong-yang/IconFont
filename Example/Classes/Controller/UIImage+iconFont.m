@@ -13,11 +13,24 @@
 
 //便捷网页工具转换： http://www.aslibra.com/iconFont/
 
-#define kTBCityIconDictionary   @{\
-@"nice":@"\U0000e600",\
-@"check":@"\U0000e601",\
-@"关闭":@"\U0000e602",\
-@"":@""}
+#define kTBCityIconDictionary @{\
+@"top":@"\U0000e600", @1:@"top", \
+@"pause":@"\U0000e601", @1:@"pause", \
+@"play":@"\U0000e602", @1:@"play", \
+@"jingbao":@"\U0000e60b", @1:@"警报", \
+@"iconsetting":@"\U0000e603", @1:@"setting", \
+@"stop":@"\U0000e604", @1:@"stop", \
+@"charline":@"\U0000e605", @1:@"char-line", \
+@"kafei":@"\U0000e60c", @1:@"咖啡", \
+@"tianjiazujian":@"\U0000e60d", @1:@"添加组件", \
+@"pause1":@"\U0000e606", @1:@"pause", \
+@"iconfontupgrade":@"\U0000e607", @1:@"upgrade", \
+@"stop1":@"\U0000e608", @1:@"stop", \
+@"bookaskicon1417":@"\U0000e609", @1:@"setting", \
+@"xiugai":@"\U0000e60e", @1:@"修改", \
+@"play1":@"\U0000e60a", @1:@"play", \
+@"jiesuo":@"\U0000e60f", @1:@"解锁", \
+}
 
 @implementation UIImage (iconFont)
 
@@ -25,7 +38,16 @@
 {
     NSDictionary *nameToUnicode = kTBCityIconDictionary;
     NSString *code = nameToUnicode[name];
-    TBCityIconInfo *info = TBCityIconInfoMake(code, size, color);
+    TBCityIconInfo *info = [TBCityIconInfo iconInfoWithText:code size:size color:color];
     return [self iconWithInfo:info];
 }
+
++ (UIImage *)iconWithName:(NSString*)name fontSize:(CGFloat)size color:(UIColor*)color inset:(UIEdgeInsets)inset
+{
+    NSDictionary *nameToUnicode = kTBCityIconDictionary;
+    NSString *code = nameToUnicode[name];
+    TBCityIconInfo *info = [TBCityIconInfo iconInfoWithText:code size:size color:color inset:inset];
+    return [self iconWithInfo:info];
+}
+
 @end
